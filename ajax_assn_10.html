@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+   <!--Kandis Brighton Assignment 10 - Ajax/jQuery 3/7/16-->
+<html>
+   <head>
+		<title>Ajax Assignment 10</title>
+   		<style type="text/css">
+			fieldset{
+                margin-bottom: 1.5em;
+                border-color:darkgreen;
+                padding: 1em;
+				max-width: 200px;
+            }
+			#phrase {
+			   padding: 1em;
+			   border: 2px solid darkgreen;
+			   max-width: 400px;
+			}
+		</style>	  
+   </head>
+   <body>
+	  <div>
+		 <!--Create the dropdown menu-->
+		 <fieldset>
+			<legend>Select a Term</legend>
+		    <select name="term" id="term">
+			<option id = 'term' value="JavaScript">JavaScript</option>
+			<option id = 'term' value="jQuery">jQuery</option>
+			<option id = 'term' value="Ajax">Ajax</option>
+		    </select>
+			<button id='button' type="button">Define</button>
+		 </fieldset>
+		 <div id="phrase"></div>
+	   </div>
+    </body>
+	<script src="http://code.jquery.com/jquery.js"> </script>
+	<script>
+	  //jQuery & Ajax code to send the value of the dropdown menu to Terms.php to get the right defination
+	  $(document).ready(function(){
+	    $("#button").click(function(){
+		    var value = $('#term').val();
+			//alert (value);
+	        $("#phrase").load('Terms.php', { value : value }, function() {
+			    //alert ("All done!")
+		    });
+        });
+	 });  
+   </script>
+  
+</html>

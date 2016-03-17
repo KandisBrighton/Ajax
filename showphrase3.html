@@ -1,0 +1,14 @@
+<body>
+   <h2>Enter a name: </h2>
+   <input type='text' id='name' >
+   <div id="phrase"></div>
+</body>
+
+<script src="http://code.jquery.com/jquery.js"</script> 
+<script>
+   $("#name").blur(function(){
+       var txtName = $("#name").val();
+       $("#phrase").load('phrase3.php',
+          { name: txtName } );
+    });
+</script>
